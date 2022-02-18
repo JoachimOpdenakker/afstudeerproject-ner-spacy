@@ -1,6 +1,6 @@
-./output
-./data/binaryData/*
-./__pycache__
+__pycache__/
+output
+data/binaryData/*
 OneDrive_1_2-18-2022.zip
 PS21B_PERSON.xz.p
 PS21B_PERSON_ORIG.xz.p
