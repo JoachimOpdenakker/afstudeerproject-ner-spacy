@@ -1,0 +1,3 @@
+./output
+./data/binaryData/*
+./__pycache__
