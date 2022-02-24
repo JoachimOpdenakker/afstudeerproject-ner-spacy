@@ -1,7 +1,11 @@
 import spacy
 from spacy.tokens import DocBin
-from data.trainingData.AdressTrainingData import TRAIN_DATA
+from result import TRAININGS_DATA as TD
 from data.trainingData.AdressValidationData import training_data
+
+f = open("problems.txt", 'w')
+f.close()
+
 
 nlp = spacy.blank("en")
 
@@ -22,15 +26,17 @@ nlp.tokenizer.infix_finditer = spacy.util.compile_infix_regex(infixes).finditer
 
 
 db = DocBin()
-for text, annotations in TRAIN_DATA:
+for text, annotations in TD:
     doc = nlp(text)
-    for token in doc:
-        print(token,end='; ')
+    # for token in doc:
+        # print(token,end='; ')
     ents = []
     for start, end, label in annotations:
         span = doc.char_span(start, end, label=label)
         if span is None:
-            print("Problem:" + doc.text + " (" + doc.text[start:end] + ")" )
+            f = open("problems.txt", 'a')
+            f.write("Problem:" + doc.text + " (" + doc.text[start:end] + ")\n")
+            f.close()
         else:
             ents.append(span)
     # print(ents)
