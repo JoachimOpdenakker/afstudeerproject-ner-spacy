@@ -10,6 +10,7 @@ with open('address.csv', newline="\n") as csvfile:
     fail_numberstreet = 0
     fail_cityzip = 0 
     for row in csvreader:
+        correct = True
         counter += 1
         # print(row)
         # exit()
@@ -52,8 +53,9 @@ with open('address.csv', newline="\n") as csvfile:
             # straat + nummer
             # oude: ([a-zA-Z]+)( )?([0-9]+)
             # nieuw: (([a-zA-Z]+) ([0-9]+.*,))
-            elif re.match('^([ \u00C0-\u017Fa-zA-Z\']+) ([0-9]+( ?bis)?)', straat):
-                split = re.search('^([ \u00C0-\u017Fa-zA-Z\']+) ([0-9]+( ?bis)?)', straat)
+            # oude nieuwe: ^([ \u00C0-\u017Fa-zA-Z\']+) ([0-9]+( ?bis)?)
+            elif re.match('^([ \u00C0-\u017Fa-zA-Z\']+) ([0-9\/]+( ?[a-zA-Z]*)?)', straat):
+                split = re.search('^([ \u00C0-\u017Fa-zA-Z\']+) ([0-9\/]+( ?[a-zA-Z]*)?)', straat)
                 splitstraat = split.group(1)
                 splitnummer = split.group(2)
                 nummerlengte = len(splitnummer)
@@ -63,13 +65,14 @@ with open('address.csv', newline="\n") as csvfile:
                 nummerposbegin = straatlengte + 1
                 nummerposeind = nummerposbegin + nummerlengte
             else:
-                fail_numberstreet +=1 
+                fail_numberstreet +=1
+                correct = False
             
             # zipcode + city
             # oud: ([A-Z]*-?[0-9]+)( )?([\u00C0-\u017Fa-zA-Z]+)
             # nieuw: ([ A-Z-]*[0-9]+) ?([\u00C0-\u017Fa-zA-Z .\/-]+)$
-            if re.match('([ A-Z-]*[0-9]+) ?([\u00C0-\u017Fa-zA-Z .\/-]+)$', city):
-                split = re.search('([ A-Z-]*[0-9]+) ?([\u00C0-\u017Fa-zA-Z .\/-]+)$', city)
+            if re.match('([ A-Z-]*[0-9]+) ?([\u00C0-\u017Fa-zA-Z .\/-¶¼]+)$', city):
+                split = re.search('([ A-Z-]*[0-9]+) ?([\u00C0-\u017Fa-zA-Z .\/-¶¼]+)$', city)
                 splitcity = split.group(2)
                 splitzipcode = split.group(1)
                 # print("city: " + splitcity)
@@ -82,8 +85,8 @@ with open('address.csv', newline="\n") as csvfile:
                 cityposeind = cityposbegin + citylengte
 
             # city + zipcode 
-            elif re.match('([\u00C0-\u017Fa-zA-Z .\/-]+) ?([ A-Z-]*[0-9]+)$', city):
-                split = re.search('([\u00C0-\u017Fa-zA-Z .\/-]+) ?([ A-Z-]*[0-9]+)$', city)
+            elif re.match('([\u00C0-\u017Fa-zA-Z .\/-¶¼]+) ?([ A-Z-]*[0-9]+)$', city):
+                split = re.search('([\u00C0-\u017Fa-zA-Z .\/-¶¼]+) ?([ A-Z-]*[0-9]+)$', city)
                 splitcity = split.group(1)
                 splitzipcode = split.group(2)
                 # print("city: " + splitcity)
@@ -96,6 +99,7 @@ with open('address.csv', newline="\n") as csvfile:
                 zipcodeposeind = zipcodeposbegin + zipcodelengte
             else:
                 fail_cityzip += 1
+                correct = False
 
 
 
@@ -107,9 +111,10 @@ with open('address.csv', newline="\n") as csvfile:
         # cityposbegin = straatlengte+1
         # cityposeind = adreslengte
         # # print(row[0] + "length: " + str(len(row[0])))
-            f = open("result.py", 'a')
-            f.write("\t(\""+adres+"\","+"[("+str(straatposbegin)+","+str(straatposeind)+", \"STREET\"),("+str(nummerposbegin)+","+str(nummerposeind)+", \"NUMBER\"),("+str(cityposbegin)+","+str(cityposeind)+", \"CITY\"),("+str(zipcodeposbegin)+","+str(zipcodeposeind)+", \"ZIPCODE\")]),\n")
-            f.close()
+            if correct:
+                f = open("result.py", 'a')
+                f.write("\t(\""+adres+"\","+"[("+str(straatposbegin)+","+str(straatposeind)+", \"STREET\"),("+str(nummerposbegin)+","+str(nummerposeind)+", \"NUMBER\"),("+str(cityposbegin)+","+str(cityposeind)+", \"CITY\"),("+str(zipcodeposbegin)+","+str(zipcodeposeind)+", \"ZIPCODE\")]),\n")
+                f.close()
             # print("(\""+adres+"\","+"[("+str(straatposbegin)+","+str(straatposeind)+", \"STREET\"),("+str(nummerposbegin)+","+str(nummerposeind)+", \"NUMBER\"),("+str(cityposbegin)+","+str(cityposeind)+", \"CITY\"),("+str(zipcodeposbegin)+","+str(zipcodeposeind)+", \"ZIPCODE\")])")
     f = open("result.py", "a")
     f.write("]")
