@@ -7,6 +7,8 @@ with open('address.csv', newline="\n") as csvfile:
     f.write("TRAININGS_DATA = [\n")
     f.close()
     counter = 0
+    fail_numberstreet = 0
+    fail_cityzip = 0 
     for row in csvreader:
         counter += 1
         # print(row)
@@ -14,10 +16,11 @@ with open('address.csv', newline="\n") as csvfile:
         counter +=1
         # print("counter: " + str(counter))
         adres = ','.join(row)
-        if re.match(".*,.*,.*", adres):
-            print(adres)
+        # if re.match(".*,.*,.*", adres):
+            # print(adres)
             # print("FUCK YOU")
-        else:
+        # else:
+        if not re.match(".*,.*,.*", adres):
             # print("counter: " + str(counter))
             adreslengte = len(adres)
             straat = row[0]
@@ -60,7 +63,7 @@ with open('address.csv', newline="\n") as csvfile:
                 nummerposbegin = straatlengte + 1
                 nummerposeind = nummerposbegin + nummerlengte
             else:
-                continue
+                fail_numberstreet +=1 
             
             # zipcode + city
             # oud: ([A-Z]*-?[0-9]+)( )?([\u00C0-\u017Fa-zA-Z]+)
@@ -69,8 +72,8 @@ with open('address.csv', newline="\n") as csvfile:
                 split = re.search('([ A-Z-]*[0-9]+) ?([\u00C0-\u017Fa-zA-Z .\/-]+)$', city)
                 splitcity = split.group(2)
                 splitzipcode = split.group(1)
-                print("city: " + splitcity)
-                print("zipcode: " + splitzipcode)
+                # print("city: " + splitcity)
+                # print("zipcode: " + splitzipcode)
                 citylengte = len(splitcity)
                 zipcodelengte = len(splitzipcode)
                 zipcodeposbegin = totale_lengte_straat + 1
@@ -83,8 +86,8 @@ with open('address.csv', newline="\n") as csvfile:
                 split = re.search('([\u00C0-\u017Fa-zA-Z .\/-]+) ?([ A-Z-]*[0-9]+)$', city)
                 splitcity = split.group(1)
                 splitzipcode = split.group(2)
-                print("city: " + splitcity)
-                print("zipcode: " + splitzipcode)
+                # print("city: " + splitcity)
+                # print("zipcode: " + splitzipcode)
                 zipcodelengte = len(splitzipcode)
                 citylengte = len(splitcity)
                 cityposbegin = totale_lengte_straat + 1
@@ -92,7 +95,7 @@ with open('address.csv', newline="\n") as csvfile:
                 zipcodeposbegin = cityposeind + 1
                 zipcodeposeind = zipcodeposbegin + zipcodelengte
             else:
-                continue
+                fail_cityzip += 1
 
 
 
@@ -111,4 +114,6 @@ with open('address.csv', newline="\n") as csvfile:
     f = open("result.py", "a")
     f.write("]")
     f.close()
+    print("failed on street: ", fail_numberstreet)
+    print("failed on city: ", fail_cityzip)
         # ("Reuterstr. 131,53113 Bonn", [(0, 10, "STREET"), (11, 14, "NUMBER"), (15, 20, "ZIPCODE"), (21, 25, "CITY")],
