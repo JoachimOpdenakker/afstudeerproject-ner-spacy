@@ -17,6 +17,7 @@ with open('address.csv', newline="\n") as csvfile:
         counter +=1
         # print("counter: " + str(counter))
         adres = ','.join(row)
+        adres = adres.replace(",", ";")
         # if re.match(".*,.*,.*", adres):
             # print(adres)
             # print("FUCK YOU")
