@@ -1,8 +1,11 @@
 import csv
 import re
-with open('address.csv', newline="\n") as csvfile:
+from unidecode import unidecode
+with open('500ksample-europefilter-address.csv', newline="\n") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     counter = 0 
+    f = open("fouten.txt", 'w')
+    f.close
     f = open("result.py", 'w')
     f.write("TRAININGS_DATA = [\n")
     f.close()
@@ -17,6 +20,8 @@ with open('address.csv', newline="\n") as csvfile:
         counter +=1
         # print("counter: " + str(counter))
         adres = ','.join(row)
+        adres = unidecode(adres)
+        # print(adres)
         adres = adres.replace(",", ";")
         # if re.match(".*,.*,.*", adres):
             # print(adres)
@@ -55,8 +60,8 @@ with open('address.csv', newline="\n") as csvfile:
             # oude: ([a-zA-Z]+)( )?([0-9]+)
             # nieuw: (([a-zA-Z]+) ([0-9]+.*,))
             # oude nieuwe: ^([ \u00C0-\u017Fa-zA-Z\']+) ([0-9]+( ?bis)?)
-            elif re.match('^([ \u00C0-\u017Fa-zA-Z\']+) ([0-9\/]+( ?[a-zA-Z]*)?)', straat):
-                split = re.search('^([ \u00C0-\u017Fa-zA-Z\']+) ([0-9\/]+( ?[a-zA-Z]*)?)', straat)
+            elif re.match('^([ \u00C0-\u017Fa-zA-Z\'ü]+) ([0-9\/]+( ?[a-zA-Z]*)?)', straat):
+                split = re.search('^([ \u00C0-\u017Fa-zA-Z\'ü]+) ([0-9\/]+( ?[a-zA-Z]*)?)', straat)
                 splitstraat = split.group(1)
                 splitnummer = split.group(2)
                 nummerlengte = len(splitnummer)
@@ -66,15 +71,18 @@ with open('address.csv', newline="\n") as csvfile:
                 nummerposbegin = straatlengte + 1
                 nummerposeind = nummerposbegin + nummerlengte
             else:
+                f = open("fouten.txt", 'a')
+                f.write("street: " + adres + "\n")
+                f.close()
                 fail_numberstreet +=1
                 correct = False
             
             # zipcode + city
             # oud: ([A-Z]*-?[0-9]+)( )?([\u00C0-\u017Fa-zA-Z]+)
             # nieuw: ([ A-Z-]*[0-9]+) ?([\u00C0-\u017Fa-zA-Z .\/-]+)$
-            if re.match('([ A-Z-]*[0-9]+) ?([\u00C0-\u017Fa-zA-Z .\/-¶¼]+)$', city):
-                split = re.search('([ A-Z-]*[0-9]+) ?([\u00C0-\u017Fa-zA-Z .\/-¶¼]+)$', city)
-                splitcity = split.group(2)
+            if re.match('([ A-Z-]*[0-9]+( ?[A-Z]{2})?) ?([\u00C0-\u0338a-zA-Z ./-]+)$', city):
+                split = re.search('([ A-Z-]*[0-9]+( ?[A-Z]{2})?) ?([\u00C0-\u0338a-zA-Z ./-]+)$', city)
+                splitcity = split.group(3)
                 splitzipcode = split.group(1)
                 # print("city: " + splitcity)
                 # print("zipcode: " + splitzipcode)
@@ -86,8 +94,8 @@ with open('address.csv', newline="\n") as csvfile:
                 cityposeind = cityposbegin + citylengte
 
             # city + zipcode 
-            elif re.match('([\u00C0-\u017Fa-zA-Z .\/-¶¼]+) ?([ A-Z-]*[0-9]+)$', city):
-                split = re.search('([\u00C0-\u017Fa-zA-Z .\/-¶¼]+) ?([ A-Z-]*[0-9]+)$', city)
+            elif re.match('([\u00C0-\u017Fa-zA-Z ./-]+) ?([ A-Z-]*[0-9]+)$', city):
+                split = re.search('([\u00C0-\u017Fa-zA-Z ./-]+) ?([ A-Z-]*[0-9]+)$', city)
                 splitcity = split.group(1)
                 splitzipcode = split.group(2)
                 # print("city: " + splitcity)
@@ -99,6 +107,9 @@ with open('address.csv', newline="\n") as csvfile:
                 zipcodeposbegin = cityposeind + 1
                 zipcodeposeind = zipcodeposbegin + zipcodelengte
             else:
+                f = open("fouten.txt", 'a')
+                f.write("city: " + adres + "\n")
+                f.close()
                 fail_cityzip += 1
                 correct = False
 
