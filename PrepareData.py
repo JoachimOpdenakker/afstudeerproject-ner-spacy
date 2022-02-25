@@ -1,7 +1,7 @@
 import spacy
 from spacy.tokens import DocBin
 from result import TRAININGS_DATA as TD
-from data.trainingData.AdressValidationData import training_data
+#from data.trainingData.AdressValidationData import training_data
 
 f = open("problems.txt", 'w')
 f.close()
@@ -51,21 +51,21 @@ db.to_disk("./data/binaryData/train.spacy")
 #   ("Ijs are famous in China too", [(0,3, "FOOD")]),
 # ]
 
-db = DocBin()
-for text, annotations in training_data:
-    doc = nlp(text)
-    ents = []
-    for start, end, label in annotations:
-        # print(doc.text[start:end])
-        span = doc.char_span(start, end, label=label)
-        if span is None:
-            print("Problem:" + doc.text + " (" + doc.text[start:end] + ")" )
-        else:
-            ents.append(span)
-    # print(ents)
-    doc.ents = ents
-    db.add(doc)
-db.to_disk("./data/binaryData/dev.spacy")
+# db = DocBin()
+# for text, annotations in training_data:
+#     doc = nlp(text)
+#     ents = []
+#     for start, end, label in annotations:
+#         # print(doc.text[start:end])
+#         span = doc.char_span(start, end, label=label)
+#         if span is None:
+#             print("Problem:" + doc.text + " (" + doc.text[start:end] + ")" )
+#         else:
+#             ents.append(span)
+#     # print(ents)
+#     doc.ents = ents
+#     db.add(doc)
+# db.to_disk("./data/binaryData/dev.spacy")
 
 
 

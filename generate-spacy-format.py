@@ -22,7 +22,7 @@ with open('500ksample-europefilter-address.csv', newline="\n") as csvfile:
         adres = ','.join(row)
         adres = unidecode(adres)
         # print(adres)
-        adres = adres.replace(",", ";")
+        # adres = adres.replace(",", ";")
         # if re.match(".*,.*,.*", adres):
             # print(adres)
             # print("FUCK YOU")
