@@ -45,8 +45,8 @@ with open('500ksample-europefilter-address.csv', newline="\n") as csvfile:
             # oud: ([0-9]+[A-Z]*)( )?([a-zA-Z]+)
             # nieuw: (^[0-9]+.*([\u00C0-\u017Fa-zA-Z]+)),
             # probeersel: ^([0-9]+)( .*)*( )([\u00C0-\u017Fa-zA-Z]+)
-            if re.match('^([0-9]+( ?bis)?) ([ \u00C0-\u017Fa-zA-Z\']+)', straat):
-                split = re.search('^([0-9]+( ?bis)?) ([ \u00C0-\u017Fa-zA-Z\']+)', straat)
+            if re.match('^([0-9\-]+( ?bis)?) ([ \u00C0-\u017Fa-zA-Z\'\-]+)', straat):
+                split = re.search('^([0-9\-]+( ?bis)?) ([ \u00C0-\u017Fa-zA-Z\'\-]+)', straat)
                 splitstraat = split.group(3)
                 splitnummer = split.group(1)
                 straatlengte = len(splitstraat)
@@ -60,8 +60,8 @@ with open('500ksample-europefilter-address.csv', newline="\n") as csvfile:
             # oude: ([a-zA-Z]+)( )?([0-9]+)
             # nieuw: (([a-zA-Z]+) ([0-9]+.*,))
             # oude nieuwe: ^([ \u00C0-\u017Fa-zA-Z\']+) ([0-9]+( ?bis)?)
-            elif re.match('^([ \u00C0-\u017Fa-zA-Z\'ü]+) ([0-9\/]+( ?[a-zA-Z]*)?)', straat):
-                split = re.search('^([ \u00C0-\u017Fa-zA-Z\'ü]+) ([0-9\/]+( ?[a-zA-Z]*)?)', straat)
+            elif re.match('^([ \u00C0-\u017Fa-zA-Z\'ü\-]+) ([0-9\/\-]+( ?[a-zA-Z]*)?)', straat):
+                split = re.search('^([ \u00C0-\u017Fa-zA-Z\'ü\-]+) ([0-9\/\-]+( ?[a-zA-Z]*)?)', straat)
                 splitstraat = split.group(1)
                 splitnummer = split.group(2)
                 nummerlengte = len(splitnummer)
