@@ -25,12 +25,13 @@ nostreet = filterstreet[filterstreet['person_ctry_code'].isin(['AT','BE','BG','C
 # dropstreet = dropstreet.sort_values(by=[('person_ctry_code')])
 # newstreet = dropstreet[dropstreet['person_ctry_code'].isin(['AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PO','PT','RO','SE','SI','SK'])]]
 # pf = pf.groupby(['person_ctry_code'])
-bla = df.filter(items=['address_1', 'address_2', 'person_ctry_code'])
-pf = bla.dropna()
-test = pf.sort_values(by=[('person_ctry_code')])
-probeersel = test[test['person_ctry_code'].isin(['AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PO','PT','RO','SE','SI','SK'])]
-# pf = pf[pf['address_1'].str.match('[0-9]+( )?[a-zA-Z]+|[a-zA-Z]+( )?[0-9]+')]
-result = probeersel.filter(items=['address_1', 'address_2'])
+pf = df.filter(items=['address_1', 'address_2', 'person_ctry_code'])
+pf = pf.dropna()
+pf = pf.sort_values(by=[('person_ctry_code')])
+pf = pf[pf['person_ctry_code'].isin(['AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PO','PT','RO','SE','SI','SK'])]
+pf = pf[pf['address_1'].str.match('[0-9]+( )?[a-zA-Z]+|[a-zA-Z]+( )?[0-9]+')]
+pf = pf.filter(items=['address_1', 'address_2'])
+
 
 
 

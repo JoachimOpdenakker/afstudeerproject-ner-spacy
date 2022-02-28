@@ -1,6 +1,6 @@
 # Training examples in the required format
 TRAIN_DATA =[ 
-              ("Pizza is a common fast food.", [(0, 5, "FOOD")]),
+              ("Pizza is a common fast food.", [(0, 5, "FOOD"), ]),
               ("Pasta is an italian recipe", [(0, 5, "FOOD")]),
               ("China's noodles are very famous", [(8,15, "FOOD")]),
               ("Shrimps are famous in China too", [(0,7, "FOOD")]),
@@ -17,3 +17,5 @@ TRAIN_DATA =[
               ("Are frenchfries considered too oily", [(4,15, "FOOD")]),
               ("I ate burrito today", [(6,13, "FOOD")]),
            ]
+
+("Reuterstr. 131,53113 Bonn", [(0, 10, "STREET"), (11, 14, "NUMBER"), (15, 20, "ZIPCODE"), (21, 25, "CITY")],
