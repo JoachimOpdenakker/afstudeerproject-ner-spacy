@@ -53,7 +53,6 @@ Schmidfeld 14,4152 Sarleinsbach
 Gemeindeweg 13A/14,2201 Gerasdorf
 Oberlaaer Strasse 282,A-1230 Vienna
 Vivenotgasse 17/9,"1120, Wien"
-Businesspark Marximum,Modecenterstr. 17
 Rösslepark 1a Top 6,6800 Feldkirch
 Softwarepark 37,4232 Hagenberg im Mühlkreis
 Radetzky Strasse 6/3,3100 St. Pölten
@@ -61,10 +60,10 @@ Altenbergerstrasse 69,A-4020 Linz
 Leibnitzstrasse 7,4061 Pasching
 Gollingerweg 27,3375 Krummnussbaum
 Hauptstrasse 6,3161 St.Veit
-/ Heinestrasse 43/2/34,1020 Wien
+Heinestrasse 43/2/34,1020 Wien
 Radegunderstrasse 30n,8045 Graz
 Anzengruberstrasse 7,9500 Villach
-Dorfstrasse 12,9524 St. Ultrich 2
+Dorfstrasse 12,9524 St. Ultrich
 Andritzerreichsstrasse 62a,8045 Graz
 Radetzkystrasse 10,A-6845 Hohenems
 Balthasar-Riepp-Strasse 2,A-6600 Reutte
@@ -77,7 +76,6 @@ Wiesengasse 12,A-4072 Alkoven/Straßham
 Hanns-Koren-Ring 8,8054 Graz
 Schönburgstraße 17/17,1040 Vienna
 Erlgasse 40,A-1120 Wien
-Ing. Hans Bodner Baugesellschaft mbH & Co KG,Alte Bundesstraße 12
 Oberwang 58/11,4882 Oberwang
 siemensstrasse 52,4030 Linz
 c/o Sandoz GmbH,Biochemiestr. 10
@@ -140,7 +138,7 @@ Ignaz-Mayer-Strasse 17,4020 Linz
 Taglerstrasse 3,A-3550 Langenlois
 Muth 6,4822 Bad Goisern
 Ghegastrasse 28/15,A-4020 Linz
-Siemensstrasse 88 - 92,A-1210 Wien
+Siemensstrasse 88-92,A-1210 Wien
 Münsterstrasse 26,A-4813 Altmünster
 Dreherstrasse 13A,1113 Wien
 Gsellenbündt 5,A-6858 Schwarzach
@@ -199,7 +197,7 @@ Riglergasse 4,A-1180 Wien
 Wehrgasse 29/8,1050 Vienna
 Gutenacker 21,8543 St. Martin
 Bräuhausstrasse 14,5020 Salzburg
-Josefstaedter Strasse 47-49/2/11,A-1080 WIEN
+Josefstaedter Strasse 47-49/2/11,A-1080 Wien
 Anton Wild Gans-weg 36,8054 Seiersberg-Pirka
 Alliertenstrasse 7/24,1020 Wien
 Goldbrunn 9,"5132, Geretsberg"
@@ -214,7 +212,7 @@ Leberackerweg 10,8041 Graz
 Aubrunnerweg 35,4040 Linz
 "Schloss Premstätten, Tobelbachstrasse",A-8141 Unterpremstätten
 Nummer 137,A-3771 St. Anton im Montafon
-Oridis Biomed GmbH Techikerstrasse 9,8010 GRAZ
+Oridis Biomed GmbH Techikerstrasse 9,8010 Graz
 Erzstrasse 12/4,A-8740 Zeltweg
 Industrie Nord,6890 Lustenau
 H.Nr. 80,6165 Telfes
@@ -293,7 +291,7 @@ Hahngasse 15/22,1090 Vienna
 Auf der Haide 5,3130 Herzogenburg
 Hof 670,6867 Schwarzenberg
 c/o Maximator Advanced Technology GmbH,Erdbergstrasse 208
-Liebenau 102,"A-4252 Liebenau, 4"
+Liebenau 102,A-4252 Liebenau
 Ullrichs 31,3932 Kirchberg/Walde
 Rieding 156,A-9431 St. Stefan
 caddie GmbH,Kirchstrasse 30a
@@ -324,7 +322,6 @@ Kehlestrasse 18A,6850 Dornbirn
 Schieferrollstrasse 13,6250 Kundl
 Mariahilfgasse 13,A-4020 Linz
 Türkstetten 10,A-4201 Gramastetten
-IZ NÖ Süd Strasse 10,Objekt 48
 Pettenkofengasse 2-35,A-1030 Vienna
 Landgutweg 1,4501 Neuhofen
 Welser Strasse 33,A-4643 Pettenbach
@@ -548,7 +545,7 @@ Rue du Commerce 4,B-4678 Rance
 Sint-Godelievestraat 32,9880 Aalter
 Agfa-Gevaert N.V. IIE 3800 Septestraat 27,B 2640 Mortsel
 Turnhoutseweg 30,2340 Beerse
-Rommersheide F6,2960 Brecht
+Rommersheide 6F,2960 Brecht
 Isenbaertstraat 77,B-8221 Snellegem
 Corporate IP Department 3800 Septestraat 27,"2640, Mortsel"
 Leliestraat 1,B-8020 Oostkamp
@@ -580,7 +577,7 @@ Ucb Pharma S.a. 60 Allée de la Recherche,B-1070 Brussels
 Rue des Alliés 216,1190 Bruxelles
 Rue Nouvelle Route 185b,B-4480 ENGIS
 "Graaf Henri Cornetlaan, 1",2950 Kapellen
-"/ 66, rue des Tisserands","6780, Messancy"
+"66, rue des Tisserands","6780, Messancy"
 Olmstraat 20,2860 Sint-Katelijne-Waver
 Keibeekstraat 23,8550 Zwevegem
 Schaapherderstraat 13/B,"9032, Wondelgem"
@@ -1688,7 +1685,6 @@ St. Korona Str. 4,94133 Röhrnbach
 Lessingstrasse 12,"89129, Langenau"
 Lerchenweg 20,D-6330 Wetzlar
 Kapellenstr. 79,76698 Ubstadt-Weiher
-3M Deutschland GmbH,Carl-Schurz-Strasse 1
 Sredzkistrasse 45,10435 Berlin
 Uhlenweg 41,31515 Wunstorf
 Bgm.-Mörtel-Strasse 28a,86554 Gundelsdorf
@@ -4124,7 +4120,6 @@ Hörlestrasse 35,67550 Worms
 Reichenberger Ring 40,38440 Wolfsburg
 Bernauer Strasse 71,83209 Prien am Chiemsee
 Seracher Strasse 8,W-7300 Esslingen
-"3M Espe AG, Espe Platz",82229 Seefeld
 Ostpreussenstrasse 11,DE - 38176 Wendeburg
 Adalbert-Stifter-Strasse 38,63811 Stockstadt
 Alter Kirchweg 5,44534 Lünen
@@ -11118,7 +11113,7 @@ SAFRAN CEPI,Rond-Point René Ravaud - Réau
 32 rue Delsaux,Appt. 26
 "THOMSON-SCF SCPI 173, bld. Haussmann",F-75379 Paris Cedex 08
 "43, rue des Sablons",F-77230 Dammartin en Goele
-"4,. rue Michel Alarcon",F-69700 Givors
+"4, rue Michel Alarcon",F-69700 Givors
 9 avenue des Français libres,F-35000 Rennes
 630 Grand rue,34980 Saint Gely du Fesc
 20 Blvd Pasteur,F-45300 Pithiviers
@@ -14280,7 +14275,7 @@ c/o Rijksuniversiteit Groningen,Department of Microbiology
 c/o High Tech Campus,Building 44
 Postbus 16,6700 AA  Wageningen
 Bakmolenstraat 154,NL-9723 DL Groningen
-12- Kleine Laak,NL- 6088 CV Roggel
+12 Kleine Laak,NL- 6088 CV Roggel
 c/o Stichting Katholieke Universiteit,Geert Grooteplein 8
 N.V. Organon P.O. Box 20,"5340 BH, Oss"
 "c/o Int. Octrooibureau B.V., Prof. Holstlaan 6",NL-5656 AA  Eindhoven
