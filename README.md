@@ -8,7 +8,9 @@ Dit is onze eigen gemaakte Tokenizer, deze gaat ervoor zorgen dat "," altijd als
 
 ### [Data](data)
 Hier vindt u 2 submappen [Samples](samples) en [TrainingData](trainingData)
+
 In het mapje samples vindt u steekproeven op adressen van verschillende groottes.
+
 In het mapje trainingData vindt u de trainingsdata van veel adressen die wij gebruiken.
 
 ### [Model](model)
