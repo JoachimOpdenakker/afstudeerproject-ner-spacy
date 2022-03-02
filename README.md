@@ -1,6 +1,7 @@
 # afstudeerproject-ner-spacy
-Hier staan de stappen en die wij hebben gedaan om ons model
-### [Research jupyter notebook](research.ipynb)
+Op de onderstaande link vindt u de stappen die wij hebben gedaan om ons model te trainen
+## [Research jupyter notebook](research.ipynb)
+
 
 
 
