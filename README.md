@@ -1,4 +1,4 @@
-# afstudeerproject-ner-spacy
+<!-- # afstudeerproject-ner-spacy -->
 Op de onderstaande link vindt u de stappen die wij hebben gedaan om ons model te trainen
 ## [Research jupyter notebook](research.ipynb)
 
