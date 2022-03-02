@@ -20,6 +20,8 @@ try:
                 counter = 0 
                 f = open("./output/EU/fouten.txt", 'w')
                 f.close
+                f = open("./data/validation/validation_EU.txt", 'w')
+                f.close
                 f = open("./data/trainingData/training_EU.py", 'w')
                 f.write("TRAININGS_DATA = [\n")
                 f.close()
@@ -85,6 +87,9 @@ try:
                         if correct:
                             f = open("./data/trainingData/training_EU.py", 'a')
                             f.write("\t(\""+adres+"\","+"[("+str(straat[0])+","+str(straat[1])+", \"STREET\"),("+str(nummer[0])+","+str(nummer[1])+", \"NUMBER\"),("+str(city[0])+","+str(city[1])+", \"CITY\"),("+str(zipcode[0])+","+str(zipcode[1])+", \"ZIPCODE\")]),\n")
+                            f.close()
+                            f = open("./data/validation/validation_EU.txt", 'a')
+                            f.write(adres+"&"+str(straat[0])+";"+str(straat[1])+";STREET&"+str(nummer[0])+";"+str(nummer[1])+";NUMBER&"+str(city[0])+";"+str(city[1])+";CITY&"+str(zipcode[0])+";"+str(zipcode[1])+";ZIPCODE\n")
                             f.close()
                         # print("(\""+adres+"\","+"[("+str(straatposbegin)+","+str(straatposeind)+", \"STREET\"),("+str(nummerposbegin)+","+str(nummerposeind)+", \"NUMBER\"),("+str(cityposbegin)+","+str(cityposeind)+", \"CITY\"),("+str(zipcodeposbegin)+","+str(zipcodeposeind)+", \"ZIPCODE\")])")
                 f = open("./data/trainingData/training_EU.py", "a")

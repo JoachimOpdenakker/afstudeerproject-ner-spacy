@@ -24,6 +24,7 @@ for text, annotations in TD:
             f.write("Problem:" + doc.text + " (" + doc.text[start:end] + ")\n")
             f.close()
         else:
+            # print(label)
             ents.append(span)
         counter += 1
         doc.ents = ents
