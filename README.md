@@ -1,4 +1,9 @@
 # afstudeerproject-ner-spacy
+Hier staan de stappen en die wij hebben gedaan om ons model
+### [Research jupyter notebook](research.ipynb)
+
+
+
 ## File structuur
 ### [Config](config)
 Hier vindt u de files die temaken hebben met de configuratie van het model
@@ -20,5 +25,3 @@ Hier vindt u 2 mappen met daarin het beste (gebruikte) model en de laatste (gebr
 ### [Scripts](scripts)
 Hier vindt u onze gebruikte python scripts (meer info vindt u in onze jupyter notebook)
 
-### [Research jupyter notebook](research.ipynb)
-Hier staan de stappen en die wij hebben gedaan.
