@@ -7632,4 +7632,4 @@ TRAININGS_DATA = [
 	("Komenskeho 1643/15,02001 Puchov",[(0,10, "STREET"),(11,18, "NUMBER"),(25,31, "CITY"),(19,24, "ZIPCODE")]),
 	("Nam Slobody 9/97,90901 Skalica",[(0,11, "STREET"),(12,16, "NUMBER"),(23,30, "CITY"),(17,22, "ZIPCODE")]),
 	("Cyrila a Metoda 1310/10,95704 Banovce nad Bebravou",[(0,15, "STREET"),(16,23, "NUMBER"),(30,50, "CITY"),(24,29, "ZIPCODE")]),
-]
+]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]

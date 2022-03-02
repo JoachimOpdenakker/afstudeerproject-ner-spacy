@@ -1,0 +1,2 @@
+TRAININGS_DATA = [
+]
