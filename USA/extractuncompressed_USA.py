@@ -5,7 +5,7 @@ import pandas as pd
 
 # print(pickle_file)
 
-df = pd.read_pickle("../data/samples/500ksample.pkl")
+df = pd.read_pickle("./data/samples/20msample.pkl")
 
 #STREET CITY ZIPCODE
 # extract_street = df.filter(items=['street', 'city', 'zip_code', 'person_ctry_code'])
@@ -27,6 +27,6 @@ result = pf.filter(items=['address_1', 'address_2'])
 
 
 
-result.to_csv('../data/samples/500ksample-americanfilter-address.csv', index=False)
+result.to_csv('./data/samples/500ksample-americanfilter-address.csv', index=False)
 
 #%%
