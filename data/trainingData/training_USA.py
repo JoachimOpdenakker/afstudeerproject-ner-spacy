@@ -1,2 +1,0 @@
-TRAININGS_DATA = [
-]
