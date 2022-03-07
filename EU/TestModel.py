@@ -10,7 +10,6 @@ with open('./data/samples/500ksample-europefilter-address.csv', newline="\n") as
     csvreader = csv.reader(csvfile, delimiter=',')
     for row in csvreader:
         row = (row[0] + ',' + row[1],row[2])
-        # print(row)
         test_text.append(row)
 
 labeledData = open('./data/validation/validation_EU.txt', 'r')
@@ -38,15 +37,12 @@ total_counter_zipcode = 0
 ctry_code = ""
 for i in test_text:
     adres_ctry_code = i[1]
-    # print(adres_ctry_code)
-    # print(i[0])
     doc = nlp(i[0])
     ents = list(doc.ents)
     for at in adreslist:
         if at[0] == str(doc):
             for j in at[1]:
                 for token in ents:
-                    # print(token)
                     bool1 = str(j[0]) == str(token.start_char)
                     bool2 = str(j[1]) == str(token.end_char)
                     bool3 = j[2] == token.label_
@@ -62,10 +58,10 @@ for i in test_text:
     total_counter += 1
     if ctry_code != adres_ctry_code:
         print("----------------------" + ctry_code + "--------------------------------")
-        print("straat: " + str(total_counter_straat) + " percentage: " + str(total_counter_straat / total_counter)+ "%")
-        print("nummer: " + str(total_counter_nummer) + " percentage: " + str(total_counter_nummer / total_counter)+ "%")
-        print("city: " + str(total_counter_city) + " percentage: " + str(total_counter_city / total_counter)+ "%")
-        print("zipcode: " + str(total_counter_zipcode) + " percentage: " + str(total_counter_zipcode / total_counter)+ "%")
+        print("straat: " + str(total_counter_straat) + " percentage: " + str(total_counter_straat / total_counter * 100)+ "%")
+        print("nummer: " + str(total_counter_nummer) + " percentage: " + str(total_counter_nummer / total_counter * 100)+ "%")
+        print("city: " + str(total_counter_city) + " percentage: " + str(total_counter_city / total_counter * 100)+ "%")
+        print("zipcode: " + str(total_counter_zipcode) + " percentage: " + str(total_counter_zipcode / total_counter * 100)+ "%")
         print("counter: " + str(total_counter))
         ctry_code = adres_ctry_code
         total_counter = 0

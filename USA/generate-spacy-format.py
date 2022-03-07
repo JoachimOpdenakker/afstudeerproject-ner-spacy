@@ -92,14 +92,6 @@ with open('./data/samples/500ksample-americanfilter-address.csv', newline="\n") 
         else:
             fail_state = fout("State", adres2, fail_state)
             continue
-        # if not re.match('((?=, )[A-Za-z]+)', adres2) or not re.match('([0-9\-]+$)', adres2) or not re.match(', ([A-Za-z]*)', adres2):
-        #     f = open("./output/USA/fouten_generate.txt", 'a')
-        #     f.write("city/zipcode/state: " + adres + "\n")
-        #     f.close()
-        #     fail_city += 1
-        #     correct = False
-        #     continue
-        
 
         if correct:
             counter += 1

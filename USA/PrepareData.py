@@ -16,8 +16,6 @@ nlp.tokenizer.infix_finditer = spacy.util.compile_infix_regex(infixes).finditer
 db = DocBin()
 for text, annotations in TD:
     doc = nlp(text)
-    # for token in doc:
-    #     print(token,end='; ')
     ents = []
     for start, end, label in annotations:
         span = doc.char_span(start, end, label=label)

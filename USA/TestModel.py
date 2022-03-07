@@ -24,7 +24,6 @@ for line in labeledData.readlines():
         # print(record)
     record.pop(0)
     adreslist.append(recordtuple)
-# print(adreslist[0])
 
 nlp = spacy.load("./model/model-best")
 # nlp = spacy.load("./model/model-last")
@@ -76,12 +75,12 @@ for i in test_text:
                     total_state += 1
     lijst.append(doc)
     total_counter += 1
-print("straat: " + str(total_correct_straat) + " percentage: " + str(total_correct_straat / total_straat)+ "%")
-print("nummer: " + str(total_correct_nummer) + " percentage: " + str(total_correct_nummer / total_nummer)+ "%")
-print("city: " + str(total_correct_city) + " percentage: " + str(total_correct_city / total_city)+ "%")
-print("zipzode: " + str(total_correct_zipcode) + " percentage: " + str(total_correct_zipcode / total_zipcode)+ "%")
-print("state: " + str(total_correct_state) + " percentage: " + str(total_correct_state / total_state)+ "%")
-print("counter: " + str(total_counter))
+print("straat: " + str(total_correct_straat) + " percentage: " + str(total_correct_straat / total_straat * 100)+ "%")
+print("nummer: " + str(total_correct_nummer) + " percentage: " + str(total_correct_nummer / total_nummer* 100)+ "%")
+print("city: " + str(total_correct_city) + " percentage: " + str(total_correct_city / total_city* 100)+ "%")
+print("zipzode: " + str(total_correct_zipcode) + " percentage: " + str(total_correct_zipcode / total_zipcode* 100)+ "%")
+print("state: " + str(total_correct_state) + " percentage: " + str(total_correct_state / total_state* 100)+ "%")
+print("adress in list: " + str(total_counter))
 
 colors = {"STREET": "linear-gradient(90deg, #aa9cfc, #fc9ce7)", "NUMBER": "linear-gradient(90deg, #3f5efb, #fc466b)", "ZIPCODE": "linear-gradient(90deg, #090979, #00d4ff)", "CITY": "linear-gradient(90deg, #eeaeca, #94bbe9)", "STATE": "linear-gradient(90deg, #22c1c3, #fdbb2d)",}
 options = {"ents": ["CITY", "STREET", "NUMBER", "ZIPCODE", "STATE"], "colors": colors}

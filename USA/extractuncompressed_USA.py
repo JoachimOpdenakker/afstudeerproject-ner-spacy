@@ -1,9 +1,5 @@
 import pickle
 import pandas as pd
-# pickle_file =  pickle.load(open("100ksample.pkl", 'rb'))
-# bla = open("blacombo.txt", "a")
-
-# print(pickle_file)
 
 df = pd.read_pickle("./data/samples/20msample.pkl")
 
@@ -21,7 +17,6 @@ pf = df.filter(items=['address_1', 'address_2', 'person_ctry_code'])
 pf = pf.dropna()
 pf = pf.sort_values(by=[('person_ctry_code')])
 pf = pf[pf['person_ctry_code'].isin(['US'])]
-# pf = pf[pf['address_1'].str.match('[0-9]+( )?[a-zA-Z]+|[a-zA-Z]+( )?[0-9]+')]
 result = pf.filter(items=['address_1', 'address_2'])
 
 
