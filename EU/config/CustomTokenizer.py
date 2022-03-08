@@ -3,7 +3,6 @@ from spacy.util import registry, compile_suffix_regex
 
 @registry.callbacks("customize_tokenizer")
 def make_customize_tokenizer():
-    print("Ik heb een rode patat")
     def customize_tokenizer(nlp):
         infixes = nlp.Defaults.infixes + [r'\,']
         nlp.tokenizer.infix_finditer = spacy.util.compile_infix_regex(infixes).finditer
