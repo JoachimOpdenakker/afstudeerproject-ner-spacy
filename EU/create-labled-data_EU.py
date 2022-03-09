@@ -21,7 +21,13 @@ df = df.dropna()
 df = df.sort_values(by=[('person_ctry_code')])
 df = df[df['person_ctry_code'].isin(['AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PO','PT','RO','SE','SI','SK'])]
 df = df.filter(items=['address_1', 'address_2', 'person_ctry_code'])
+df = df.drop_duplicates()
+def transliterate(row):
+    row[0] = unidecode(row[0])
+    row[1] = unidecode(row[1])
+    row[2] = unidecode(row[2])
 
+df.apply(lambda x: transliterate(x),axis=1)
 df.to_pickle('./data/samples/500ksample-europefilter-address.pkl')
 
 stringf = pd.DataFrame(columns=['full_address', 'straat', 'nummer', 'city', 'zipcode'])
@@ -33,10 +39,7 @@ fail_cityzip = 0
 def get_address(row):
     global fail_numberstreet
     global fail_cityzip
-    row[0] = unidecode(row[0])
-    row[1] = unidecode(row[1])
-    row[2] = unidecode(row[2])
-    full_address = unidecode(row['address_1'] + ',' + row['address_2'])
+    full_address = row['address_1'] + ',' + row['address_2']
     totale_lengte_straat = len(row['address_1']) + 1
     straat = ""
     nummer = ""

@@ -15,19 +15,19 @@ def formatline(row):
     global validation
     if not (row.straat == "" and row.nummer == "" and row.city == "" and row.zipcode == ""):
         line = "\t(\""+row.full_address+"\","+"["
-        valit = row.full_address + "&"
+        valit = row.full_address
         if row.straat != "":
             line += "("+str(row.straat[0])+","+str(row.straat[1])+", \"STREET\"),"
-            valit += str(row.straat[0]) + ";" + str(row.straat[1]) + ";STREET&"
+            valit += "&"+str(row.straat[0]) + ";" + str(row.straat[1]) + ";STREET"
         if row.nummer != "":
             line += "("+str(row.nummer[0])+","+str(row.nummer[1])+", \"NUMBER\"),"
-            valit += str(row.nummer[0]) + ";" + str(row.nummer[1]) + ";NUMBER&"
+            valit += "&"+str(row.nummer[0]) + ";" + str(row.nummer[1]) + ";NUMBER"
         if row.city != "":
             line += "("+str(row.city[0])+","+str(row.city[1])+", \"CITY\"),"
-            valit += str(row.city[0])+";"+str(row.city[1])+";CITY&"
+            valit += "&"+str(row.city[0])+";"+str(row.city[1])+";CITY"
         if row.zipcode != "":
             line += "("+str(row.zipcode[0])+","+str(row.zipcode[1])+", \"ZIPCODE\"),"
-            valit += str(row.zipcode[0])+";"+str(row.zipcode[1])+";ZIPCODE"
+            valit += "&"+str(row.zipcode[0])+";"+str(row.zipcode[1])+";ZIPCODE"
         line += "]),\n"
         valit += "\n"
 

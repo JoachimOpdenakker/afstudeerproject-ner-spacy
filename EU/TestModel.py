@@ -1,15 +1,12 @@
 import csv
 from curses.ascii import ctrl
 import spacy
+import pandas as pd
 from spacy.tokens import DocBin
 from spacy import displacy
 
 test_text = []
-with open('./data/samples/500ksample-europefilter-address.csv', newline="\n") as csvfile:
-    csvreader = csv.reader(csvfile, delimiter=',')
-    for row in csvreader:
-        row = (row[0] + ',' + row[1],row[2])
-        test_text.append(row)
+df = pd.read_pickle("./data/samples/500ksample-europefilter-address.pkl")
 
 labeledData = open('./data/validation/validation_EU.txt', 'r')
 adreslist = []
@@ -34,9 +31,19 @@ total_counter_nummer = 0
 total_counter_city = 0
 total_counter_zipcode = 0
 ctry_code = ""
-for i in test_text:
-    adres_ctry_code = i[1]
-    doc = nlp(i[0])
+
+def validate(row):
+    global lijst
+    global correct_counter
+    global total_counter
+    global total_counter_straat
+    global total_counter_nummer
+    global total_counter_city
+    global total_counter_zipcode
+    global ctry_code
+    adres_ctry_code = row.person_ctry_code
+    full_address = row.address_1 + ',' + row.address_2
+    doc = nlp(full_address)
     ents = list(doc.ents)
     for at in adreslist:
         if at[0] == str(doc):
@@ -68,6 +75,8 @@ for i in test_text:
         total_counter_nummer = 0
         total_counter_city = 0
         total_counter_zipcode = 0
+
+df.apply(lambda x: validate(x),axis=1)
 
 colors = {"STREET": "linear-gradient(90deg, #aa9cfc, #fc9ce7)", "NUMBER": "linear-gradient(90deg, #3f5efb, #fc466b)", "ZIPCODE": "linear-gradient(90deg, #090979, #00d4ff)", "CITY": "linear-gradient(90deg, #eeaeca, #94bbe9)", "OTHER": "linear-gradient(90deg, #22c1c3, #fdbb2d)",}
 options = {"ents": ["CITY", "STREET", "NUMBER", "ZIPCODE", "OTHER"], "colors": colors}
