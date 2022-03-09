@@ -1,15 +1,13 @@
 import csv
 import spacy
+import pandas as pd
 from spacy.tokens import DocBin
 from spacy import displacy
 
 # test_text = ["Keilalahdentie 4,02150 Espoo", "Weisshsusstrasse 2,52066 Aachen", "14 rue Royale,75008 Paris", "Hüninger Strasse 25,14195 Berlin", "19 bis rue Hoche,49100 Angers"]
 test_text = []
-with open('./data/samples/500ksample-americanfilter-address.csv', newline="\n") as csvfile:
-    csvreader = csv.reader(csvfile, delimiter=',')
-    for row in csvreader:
-        row = ','.join(row)
-        test_text.append(row)
+
+df = pd.read_pickle("./data/samples/500ksample-americanfilter-address.pkl")
 
 labeledData = open('./data/validation/validation_USA.txt', 'r')
 adreslist = []
@@ -21,7 +19,6 @@ for line in labeledData.readlines():
     for i in line:
         i = i.split(";")
         record.append(i)
-        # print(record)
     record.pop(0)
     adreslist.append(recordtuple)
 
@@ -42,14 +39,26 @@ total_city = 0
 total_zipcode = 0
 total_state = 0
 
-for i in test_text:    
-    doc = nlp(i)
+def validate(row):
+    global total_counter
+    global total_correct_straat
+    global total_correct_nummer
+    global total_correct_city
+    global total_correct_zipcode
+    global total_correct_state
+
+    global total_straat
+    global total_nummer
+    global total_city
+    global total_zipcode
+    global total_state 
+    full_address = row.address_1 + ',' + row.address_2
+    doc = nlp(full_address)
     ents = list(doc.ents)
     for at in adreslist:
         if at[0] == str(doc):
             for j in at[1]:
                 for token in ents:
-                    # print(token)
                     bool1 = str(j[0]) == str(token.start_char)
                     bool2 = str(j[1]) == str(token.end_char)
                     bool3 = j[2] == token.label_
@@ -75,6 +84,9 @@ for i in test_text:
                     total_state += 1
     lijst.append(doc)
     total_counter += 1
+
+df.apply(lambda x: validate(x),axis=1)
+
 print("straat: " + str(total_correct_straat) + " percentage: " + str(total_correct_straat / total_straat * 100)+ "%")
 print("nummer: " + str(total_correct_nummer) + " percentage: " + str(total_correct_nummer / total_nummer* 100)+ "%")
 print("city: " + str(total_correct_city) + " percentage: " + str(total_correct_city / total_city* 100)+ "%")

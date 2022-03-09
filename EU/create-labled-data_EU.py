@@ -37,7 +37,7 @@ def get_address(row):
     row[1] = unidecode(row[1])
     row[2] = unidecode(row[2])
     full_address = unidecode(row['address_1'] + ',' + row['address_2'])
-    totale_lengte_straat = len(row['address_1']) +1
+    totale_lengte_straat = len(row['address_1']) + 1
     straat = ""
     nummer = ""
     city = ""
@@ -47,11 +47,11 @@ def get_address(row):
     cityspan = ""
     zipcodespan = ""
     if re.match('^([0-9\-]+( ?bis)?) ([ \u00C0-\u017Fa-zA-Z\'\-]+)', row[0]):
-                split = re.search('^([0-9\-]+( ?bis)?) ([ \u00C0-\u017Fa-zA-Z\'\-]+)', row[0])
-                straat = split.group(3)
-                nummer = split.group(1)
-                straatspan = split.span(3)
-                nummerspan = split.span(1)
+        split = re.search('^([0-9\-]+( ?bis)?) ([ \u00C0-\u017Fa-zA-Z\'\-]+)', row[0])
+        straat = split.group(3)
+        nummer = split.group(1)
+        straatspan = split.span(3)
+        nummerspan = split.span(1)
     # straat + nummer
     elif re.match('^([ \u00C0-\u017Fa-zA-Z\'\-]+) ([0-9\/\-]+( ?[a-zA-Z]*)?)', row[0]):
         split = re.search('^([ \u00C0-\u017Fa-zA-Z\'\-]+) ([0-9\/\-]+( ?[a-zA-Z]*)?)', row[0])
