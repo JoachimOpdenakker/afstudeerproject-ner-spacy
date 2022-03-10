@@ -43,5 +43,3 @@ for text, annotations in DD:
     db.add(doc)
 db.to_disk("./data/binaryData/dev.spacy")
 
-
-

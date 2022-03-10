@@ -39,7 +39,6 @@ def formatline(row):
         counter += 1
         if counter < 5:
             train += line
-            # print(train)
         else:
             dev += line
             counter = 0

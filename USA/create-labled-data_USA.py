@@ -20,9 +20,10 @@ df = df.filter(items=['address_1', 'address_2', 'person_ctry_code'])
 df = df.dropna()
 df = df.sort_values(by=[('person_ctry_code')])
 df = df[df['person_ctry_code'].isin(['US'])]
-result = df.filter(items=['address_1', 'address_2'])
+df = df.filter(items=['address_1', 'address_2'])
+df = df.drop_duplicates()
 
-result.to_pickle('./data/samples/500ksample-americanfilter-address.pkl')
+df.to_pickle('./data/samples/500ksample-americanfilter-address.pkl')
 
 stringf = pd.DataFrame(columns=['full_address', 'straat', 'nummer', 'city', 'zipcode', 'state'])
 spanf = pd.DataFrame(columns=['full_address', 'straat', 'nummer', 'city', 'zipcode', 'state'])

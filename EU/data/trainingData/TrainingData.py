@@ -17,5 +17,3 @@ TRAIN_DATA =[
               ("Are frenchfries considered too oily", [(4,15, "FOOD")]),
               ("I ate burrito today", [(6,13, "FOOD")]),
            ]
-
-("Reuterstr. 131,53113 Bonn", [(0, 10, "STREET"), (11, 14, "NUMBER"), (15, 20, "ZIPCODE"), (21, 25, "CITY")],

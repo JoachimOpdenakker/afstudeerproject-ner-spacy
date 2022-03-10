@@ -109,14 +109,3 @@ spanf.to_pickle("./data/lableddata/spanformat.pkl")
 
 print("failed on street: ", fail_numberstreet)
 print("failed on city: ", fail_cityzip)
-
-
-# full_address = ""
-
-# def get_address(address_1, address_2):-
-#     full_address = address_1 + ',' + address_2
-
-
-
-
-# result.to_csv('./data/samples/500ksample-europefilter-address.csv', index=False)
