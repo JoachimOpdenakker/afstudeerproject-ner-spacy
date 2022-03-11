@@ -1,4 +1,17 @@
 <!-- # afstudeerproject-ner-spacy -->
+
+## Installatie instructies zonder jupyter notebook.
+
+* Installeer pip3 (Ubuntu: sudo apt install python3-pip)
+* Installeer/update virtualenv: ```pip3 install --upgrade virtualenv```
+* Maak virtual environment aan: ```virtualenv -p python3 .```
+* Activeer virtal environment: ```source bin/activate```
+* Installeer pip dependencies: ```pip3 install pandas unidecode spacy```
+* Maak gelabelde data: ```python3 create-labled-data_USA.py```
+* Converteer data naar spacy formaat: ```python3 generate-spacy-format.py```
+* Train het NER model: ```python3 TrainModel.py```
+* Test het NER model op testdata: ```python3 TestModel.py```
+
 Op de onderstaande link vindt u de stappen die wij hebben gedaan om ons model te trainen
 ## [Research jupyter notebook](research.ipynb)
 
